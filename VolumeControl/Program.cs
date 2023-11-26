@@ -121,7 +121,7 @@ namespace VolumeControl
                 else
                 {
                     Console.Error.WriteLine($"Failed to acquire mutex \"{appMutexName}\" because another instance of Volume Control is using it!");
-                    LocalizationHelper.Initialize(false, false, null);
+                    LocalizationHelper.Initialize(false, null);
                     MessageBox.Show(Loc.Tr($"VolumeControl.Dialogs.AnotherInstanceIsRunning.{(Settings.AllowMultipleDistinctInstances ? "MultiInstance" : "SingleInstance")}", "Another instance of Volume Control is already running!").Replace("${PATH}", Settings.Location));
                     return EXITCODE_MUTEX;
                 }
@@ -137,6 +137,10 @@ namespace VolumeControl
             // open the log file in debug mode
             ShellHelper.OpenWithDefault(Settings.LogPath);
 #endif
+
+            FLog.Info(
+                $"Config Path: \"{Settings.Location}\"",
+                $"Log Path:    \"{Settings.LogPath}\"");
 
             // write commandline arguments to the log if they were specified
             if (args.Length > 0)
@@ -154,16 +158,14 @@ namespace VolumeControl
             int versionCompare = version.CompareSortOrderTo(Settings.__VERSION__);
             bool versionChanged = !versionCompare.Equals(0);
 
-            bool overwriteLanguageConfigs = args.Any(arg => arg.Equals("--overwrite-language-configs", StringComparison.Ordinal));
             bool logMissingTranslations = Settings.LogMissingTranslations;
 #if DEBUG
-            overwriteLanguageConfigs = true; //< always overwrite language configs in DEBUG configuration
             logMissingTranslations = true; //< always log missing translations in DEBUG configuration
 #endif
 
             // Initialize locale helper
             //  overwrite language configs when the version number changed or when specified on the commandline
-            LocalizationHelper.Initialize(versionChanged || overwriteLanguageConfigs, logMissingTranslations, FLog.Log);
+            LocalizationHelper.Initialize(logMissingTranslations, FLog.Log);
 
             if (changedWorkingDirectory)
             { // write a log message about changing the working directory

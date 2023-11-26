@@ -4,7 +4,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Description>Official Addon SDK for the Volume Control application.</Description>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageTags>volume-control;VolumeControl;volume-control-sdk;VolumeControl.SDK</PackageTags>
     <RepositoryUrl>https://github.com/radj307/volume-control</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -20,8 +19,8 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <FileVersion>6.6.2</FileVersion>
-    <Version>6.6.2</Version>
+    <FileVersion>6.6.3</FileVersion>
+    <Version>6.6.3</Version>
     <Copyright>Copyright © 2022-2023 by $(Authors)</Copyright>
   </PropertyGroup>
   <ItemGroup>
@@ -49,8 +48,8 @@
     <PackageReference Include="radj307.AppReconfig" Version="2.3.1">
       <PrivateAssets>Resources</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="radj307.Localization" Version="0.0.0" />
-    <PackageReference Include="radj307.Localization.WPF" Version="0.0.0" />
+    <PackageReference Include="radj307.Localization" Version="0.3.3" />
+    <PackageReference Include="radj307.Localization.WPF" Version="0.3.3" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VolumeControl.CoreAudio\VolumeControl.CoreAudio.csproj">
