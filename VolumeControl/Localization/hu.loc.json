@@ -200,6 +200,12 @@
                 "Tooltip": {
                   "Magyar (Hungarian)": "Hangerő és némítás megjelenítése a Hang Eszközökben."
                 }
+              },
+              "HiddenSessions": {
+                "Content": {
+                  "Magyar (Hungarian)": "Rejtett Munkamenetek"
+                },
+                "Tooltip": {}
               }
             },
             "DeviceGrid": {
@@ -308,6 +314,36 @@
                 },
                 "Tooltip": {}
               }
+            },
+            "ColorPicker": {
+              "Background": {
+                "Tooltip": {
+                  "Magyar (Hungarian)": "Az értesítési ablak háttérszínének beállítása."
+                }
+              },
+              "Foreground": {
+                "Tooltip": {
+                  "Magyar (Hungarian)": "Az értesítési ablak szövegének színét állítja be."
+                }
+              },
+              "LockedAccent": {
+                "Tooltip": {
+                  "Magyar (Hungarian)": "Beállítja az értesítési ablak akcentusszínét, amikor a kijelölés zárolva van."
+                }
+              },
+              "UnlockedAccent": {
+                "Tooltip": {
+                  "Magyar (Hungarian)": "Beállítja az értesítési ablak akcentusszínét, amikor a kijelölés feloldásra kerül."
+                }
+              }
+            },
+            "CornerRadius": {
+              "Content": {
+                "Magyar (Hungarian)": "Sarok Sugara:"
+              },
+              "Tooltip": {
+                "Magyar (Hungarian)": "Az értesítési ablak sarkainak sugara. A bal felső saroktól indul és az óramutató járásával megegyező irányban halad."
+              }
             }
           },
           "Log": {
@@ -398,6 +434,22 @@
               },
               "Tooltip": {
                 "Magyar (Hungarian)": "A fő ablak relatív pozíciójának megörzése a legközelebbi sarokhoz a monitoron, amikor a felbontás változik."
+              }
+            },
+            "RestorePosition": {
+              "Content": {
+                "Magyar (Hungarian)": "Pozíció Visszaállítása"
+              },
+              "Tooltip": {
+                "Magyar (Hungarian)": "Visszaállítja a főablak előző pozícióját a program indításakor."
+              }
+            },
+            "EnableInputDevices": {
+              "Content": {
+                "Magyar (Hungarian)": "Audio Bemenet Támogatása"
+              },
+              "Tooltip": {
+                "Magyar (Hungarian)": "Lehetővé teszi a hangfelvételt rögzítő eszközök és munkamenetek támogatását."
               }
             }
           },
@@ -565,8 +617,27 @@
           "NewVersionAvailableMessage": {
             "Magyar (Hungarian)": "Egy új verzió elérhető a Volume Controlból!\nEl akarsz látogatni a megjelenés oldalára?\nJelenlegi Verzió:  ${CURRENT_VERSION}\nLegújabb Verzió:   ${LATEST_VERSION}"
           },
+          "NewVersionAvailableOptions_AutoUpdate": {
+            "Magyar (Hungarian)": "Kattintson az 'Igen' gombra a legújabb kiadás telepítéséhez.\nKattintson a 'Nem' gombra, ha most nem szeretne frissíteni.\nKattintson a 'Mégse' gombra a felszólítások kikapcsolásához."
+          },
           "NewVersionAvailableOptions_OpenBrowser": {
             "Magyar (Hungarian)": "Nyomd meg az 'Igen' gombot, hogy oda menj.\nKattints a 'Nem'-re ha nem szeretnéd most frissíteni.\nKattints a 'Mégse' gombra ha nem akarsz a jövőben ilyet látni."
+          },
+          "DownloadFailed": {
+            "Caption": {
+              "Magyar (Hungarian)": "Letöltés Sikertelen"
+            },
+            "Message": {
+              "Magyar (Hungarian)": "Hiba történt a telepítő letöltése közben, további információkért nézze meg a naplót."
+            }
+          },
+          "StartFailed": {
+            "Caption": {
+              "Magyar (Hungarian)": "Telepítő Indítása Sikertelen"
+            },
+            "Message": {
+              "Magyar (Hungarian)": "Nem sikerült elindítani a telepítőt, de a letöltés sikeres volt.\nA rendszer engedélyei nem engedélyezik az alkalmazások futtatását a letöltések mappából.\n\nA telepítőt manuálisan kell elindítania."
+            }
           }
         },
         "RemoveHotkey": {
@@ -776,6 +847,30 @@
         "ImeAccept": { "Magyar (Hungarian)": "ImeAccept" },
         "ImeModeChange": { "Magyar (Hungarian)": "ImeModeChange" }
   
+      }
+    },
+
+    "DefaultHotkeyNames": {
+      "Volume Up": {
+        "Magyar (Hungarian)": "Hangerő Fel"
+      },
+      "Volume Down": {
+        "Magyar (Hungarian)": "Hangerő Le"
+      },
+      "Toggle Mute": {
+        "Magyar (Hungarian)": "Némítás Kapcsolása"
+      },
+      "Next Session": {
+        "Magyar (Hungarian)": "Következő Munkamenet"
+      },
+      "Previous Session": {
+        "Magyar (Hungarian)": "Előző Munkamenet"
+      },
+      "Un/Lock Session": {
+        "Magyar (Hungarian)": "Munkamenet feloldása/zárása"
+      },
+      "Toggle Selected": {
+        "Magyar (Hungarian)": "Kijelöltek Kapcsolása"
       }
     }
   }

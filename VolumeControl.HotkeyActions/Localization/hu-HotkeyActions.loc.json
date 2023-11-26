@@ -1,0 +1,500 @@
+{
+    /**
+     * All action translations MUST be defined inside of the "Actions" object.
+     */
+    "Actions": {
+      /**
+       * Action Groups
+       *   Each key here corresponds to the case-sensitive name of an action group.
+       */
+      // Audio Session Actions
+      "AudioSessionActions": {
+        "GroupName": { "Magyar (Hungarian)": "Munkamenet" },
+  
+        /**
+         * Shared Action Settings
+         *   Each key in "SharedSettings" corresponds to the name of an action setting for at least one action method in this group.
+         *   Setting translations can also be defined for a specific action, which takes precedence over the settings defined here.
+         */
+        "SharedSettings": {
+          "Target Override(s)": {
+            "Name": {
+              "Magyar (Hungarian)": "Felülírási Cél(ok)"
+            },
+            "Description": {
+              "Magyar (Hungarian)": "A művelet csak a megadott audió munkameneteket érinti."
+            }
+          },
+          "Select Target Override(s)": {
+            "Name": {
+              "Magyar (Hungarian)": "Felülírási Cél(ok) Kiválasztása"
+            },
+            "Description": {
+              "Magyar (Hungarian)": "A célfelülbírálási munkamenetek kiválasztása a művelet indításakor."
+            }
+          },
+          "Volume Step Override": {
+            "Name": {
+              "Magyar (Hungarian)": "Hangerő Lépték Felülírása"
+            },
+            "Description": {
+              "Magyar (Hungarian)": "Felülírja a művelet globális hangerő léptékét."
+            }
+          }
+        },
+  
+        /**
+         * Action Methods
+         *   Each key here corresponds to the case-sensitive name of a method in this group.
+         */
+        "VolumeUp": {
+          "Name": {
+            "Magyar (Hungarian)": "Hangerő Fel"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Növeli a munkamenet(ek) hangerőjét."
+          }
+        },
+        "VolumeDown": {
+          "Name": {
+            "Magyar (Hungarian)": "Hangerő Le"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Csökkenti a munkamenet(ek) hangerőjét."
+          }
+        },
+        "SetVolume": {
+          "Name": {
+            "Magyar (Hungarian)": "Hangerő Beállítása"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "A munkamenet(ek) hangerejének és/vagy némítási állapotának beállítása."
+          },
+          "Settings": {
+            "Volume Level": {
+              "Name": {
+                "Magyar (Hungarian)": "Hangerő Szint"
+              },
+              "Description": {
+                "Magyar (Hungarian)": "A hangerőszint, amelyre a cél munkamenet(ek) beállítható(k)."
+              }
+            },
+            "Mute State": {
+              "Name": {
+                "Magyar (Hungarian)": "Némítás Állapot"
+              },
+              "Description": {
+                "Magyar (Hungarian)": "A cél munkamenet(ek) némítási állapota."
+              }
+            },
+            "Target All Sessions": {
+              "Name": {
+                "Magyar (Hungarian)": "Minden Munkamenet Megcélzása"
+              },
+              "Description": {
+                "Magyar (Hungarian)": "Figyelmen kívül hagyja a célfelülbírálás(oka)t, és ha be van jelölve, a műveletet az összes audió munkamenetre alkalmazza."
+              }
+            }
+          }
+        },
+        "Mute": {
+          "Name": {
+            "Magyar (Hungarian)": "Némítás"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Munkamenet(ek) némítása."
+          }
+        },
+        "Unmute": {
+          "Name": {
+            "Magyar (Hungarian)": "Némítás Feloldása"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Munkamenet(ek) némításának feloldása."
+          }
+        },
+        "ToggleMute": {
+          "Name": {
+            "Magyar (Hungarian)": "Némítás Bekapcsolása"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "A munkamenet(ek) néma állapotának váltása."
+          }
+        },
+        "SelectNext": {
+          "Name": {
+            "Magyar (Hungarian)": "Következő Kiválasztása"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Az aktuális munkamenetet a következő munkamenetre cseréli a listán."
+          }
+        },
+        "SelectPrevious": {
+          "Name": {
+            "Magyar (Hungarian)": "Előző Kiválasztása"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Az aktuális munkamenetet az előző munkamenetre cseréli a listán."
+          }
+        },
+        "Deselect": {
+          "Name": {
+            "Magyar (Hungarian)": "Kijelölés törlése"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Visszaállítja az aktuális munkamenetet."
+          }
+        },
+        "Lock": {
+          "Name": {
+            "Magyar (Hungarian)": "Zárolás"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Zárolja az aktuális munkamenetet, hogy megakadályozza annak megváltoztatását."
+          }
+        },
+        "Unlock": {
+          "Name": {
+            "Magyar (Hungarian)": "Feloldás"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Feloldja az aktuális munkamenetet, hogy engedélyezze annak megváltoztatását."
+          }
+        },
+        "ToggleLock": {
+          "Name": {
+            "Magyar (Hungarian)": "Zárolás Kapcsoló"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Be- és kikapcsolja, hogy az aktuális munkamenet zárolva vagy feloldva van-e. Ha zárolt, akkor nem módosítható, amíg fel nem oldják a zárolást."
+          }
+        },
+        "ToggleSelected": {
+          "Name": {
+            "Magyar (Hungarian)": "Kiválasztás Kapcsoló"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Beállítja, hogy az aktuális munkamenet ki van-e jelölve vagy sem. Több munkamenet is kijelölhető, de csak egy lehet az aktuális munkamenet."
+          }
+        }
+      },
+  
+      // Audio Device Actions
+      "AudioDeviceActions": {
+        "GroupName": { "Magyar (Hungarian)": "Eszköz" },
+  
+        "SharedSettings": {
+          "Volume Step Override": {
+            "Name": {
+              "Magyar (Hungarian)": "Hangerő Lépték Felülírása"
+            },
+            "Description": {
+              "Magyar (Hungarian)": "Felülírja a művelet globális hangerő léptékét."
+            }
+          }
+        },
+  
+        "VolumeUp": {
+          "Name": {
+            "Magyar (Hungarian)": "Hangerő Fel"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Növeli a kiválasztott eszköz hangerőjét."
+          }
+        },
+        "VolumeDown": {
+          "Name": {
+            "Magyar (Hungarian)": "Hangerő Le"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Csökkenti a kiválasztott eszköz hangerőjét."
+          }
+        },
+        "Mute": {
+          "Name": {
+            "Magyar (Hungarian)": "Némítás"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Némítja a kiválasztott eszközt."
+          }
+        },
+        "Unmute": {
+          "Name": {
+            "Magyar (Hungarian)": "Némítás Feloldása"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Feloldja a kiválasztott eszköz némítását."
+          }
+        },
+        "ToggleMute": {
+          "Name": {
+            "Magyar (Hungarian)": "Némítás Bekapcsolása"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Be- és kikapcsolja a kiválasztott eszköz némítását."
+          }
+        },
+        "SelectNext": {
+          "Name": {
+            "Magyar (Hungarian)": "Következő Kiválasztása"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Kiválasztja a következő eszközt a listában."
+          }
+        },
+        "SelectPrevious": {
+          "Name": {
+            "Magyar (Hungarian)": "Előző Kiválasztása"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Kiválasztja az előző eszközt a listában."
+          }
+        },
+        "Deselect": {
+          "Name": {
+            "Magyar (Hungarian)": "Kijelölés törlése"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "A kiválasztott eszköz kijelölésének megszüntetése."
+          }
+        },
+        "SelectDefault": {
+          "Name": {
+            "Magyar (Hungarian)": "Alapértelmezett Kiválasztása"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Kiválasztja az alapértelmezett eszközt a listában."
+          }
+        },
+        "Lock": {
+          "Name": {
+            "Magyar (Hungarian)": "Zárolás"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Zárolja a kiválasztott eszközt, hogy megakadályozza annak megváltoztatását."
+          }
+        },
+        "Unlock": {
+          "Name": {
+            "Magyar (Hungarian)": "Feloldás"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Feloldja a kiválasztott eszközt, hogy engedélyezze annak megváltoztatását."
+          }
+        },
+        "ToggleLock": {
+          "Name": {
+            "Magyar (Hungarian)": "Zárolás Kapcsoló"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Be- és kikapcsolja, hogy a kiválasztott eszköz zárolva vagy feloldva van-e. Ha zárolt, akkor nem módosítható, amíg fel nem oldják a zárolást."
+          }
+        }
+      },
+  
+      // Active Application Actions
+      "ActiveApplicationActions": {
+        "GroupName": { "Magyar (Hungarian)": "Aktív Alkalmazás" },
+  
+        "SharedSettings": {
+          "Select Session": {
+            "Name": {
+              "Magyar (Hungarian)": "Munkamenet Kiválasztása"
+            },
+            "Description": {
+              "Magyar (Hungarian)": "A művelet csak a megadott audió munkameneteket érinti."
+            }
+          },
+          "Volume Step Override": {
+            "Name": {
+              "Magyar (Hungarian)": "Hangerő Lépték Felülírása"
+            },
+            "Description": {
+              "Magyar (Hungarian)": "Felülírja a művelet globális hangerő léptékét."
+            }
+          }
+        },
+  
+        "VolumeUp": {
+          "Name": {
+            "Magyar (Hungarian)": "Hangerő Fel"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Növeli az aktív alkalmazás hangerőjét."
+          }
+        },
+        "VolumeDown": {
+          "Name": {
+            "Magyar (Hungarian)": "Hangerő Le"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Csökkenti az aktív alkalmazás hangerőjét."
+          }
+        },
+        "Mute": {
+          "Name": {
+            "Magyar (Hungarian)": "Némítás"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Némítja az aktív alkalmazást."
+          }
+        },
+        "Unmute": {
+          "Name": {
+            "Magyar (Hungarian)": "Némítás Feloldása"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Feloldja az aktív alkalmazás némítását."
+          }
+        },
+        "ToggleMute": {
+          "Name": {
+            "Magyar (Hungarian)": "Némítás Kapcsoló"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Be- és kikapcsolja az aktív alkalmazás némítását."
+          }
+        }
+      },
+  
+      // Application Actions
+      "ApplicationActions": {
+        "GroupName": { "Magyar (Hungarian)": "Alkalmazás" },
+  
+        "ToggleSessionNotifications": {
+          "Name": {
+            "Magyar (Hungarian)": "Munkamenet-értesítések bekapcsolása"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Bekapcsolja a Munkamenet-értesítések engedélyezését."
+          }
+        },
+        "ToggleDeviceNotifications": {
+          "Name": {
+            "Magyar (Hungarian)": "Eszközértesítések átkapcsolása"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Átkapcsolja az Eszközértesítések engedélyezését."
+          }
+        },
+        "BringToForeground": {
+          "Name": {
+            "Magyar (Hungarian)": "Előtérbe Helyezés"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Az alkalmazás ablakát az összes többi ablak elé helyezi."
+          }
+        },
+        "SendToBackground": {
+          "Name": {
+            "Magyar (Hungarian)": "Háttérbe Küldés"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Az alkalmazás ablakát az összes többi ablak mögé helyezi."
+          }
+        },
+        "Minimize": {
+          "Name": {
+            "Magyar (Hungarian)": "Kicsinyítés"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Elrejti az ablakot."
+          }
+        },
+        "Unminimize": {
+          "Name": {
+            "Magyar (Hungarian)": "Megjelenítés"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Megjeleníti az ablakot."
+          }
+        }
+      },
+  
+      // Media Actions
+      "MediaActions": {
+        "GroupName": { "Magyar (Hungarian)": "Média" },
+  
+        "NextTrack": {
+          "Name": {
+            "Magyar (Hungarian)": "Következő Szám"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Következő számra váltja a médialejátszást."
+          }
+        },
+        "PreviousTrack": {
+          "Name": {
+            "Magyar (Hungarian)": "Előző Szám"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Az előző számra váltja a médialejátszást."
+          }
+        },
+        "TogglePlayback": {
+          "Name": {
+            "Magyar (Hungarian)": "Lejátszás Kapcsolása"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Be- és kikapcsolja a médialejátszást."
+          }
+        },
+        "StopPlayback": {
+          "Name": {
+            "Magyar (Hungarian)": "Lejátszás Megállítása"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Megállítja a médialejátszást."
+          }
+        }
+      },
+  
+      // System Actions
+      "SystemActions": {
+        "GroupName": { "Magyar (Hungarian)": "Rendszer" },
+  
+        "StartProcess": {
+          "Name": {
+            "Magyar (Hungarian)": "Folyamat Indítása"
+          },
+          "Description": {
+            "Magyar (Hungarian)": "Elindítja a megadott folyamatot."
+          },
+          "Settings": {
+            "FileName": {
+              "Name": {
+                "Magyar (Hungarian)": "Fájl Név"
+              },
+              "Description": {
+                "Magyar (Hungarian)": "A célfájl abszolút vagy relatív elérési útja."
+              }
+            },
+            "Working Directory": {
+              "Name": {
+                "Magyar (Hungarian)": "Munkakönyvtár"
+              },
+              "Description": {
+                "Magyar (Hungarian)": "A munkakönyvtár, ahonnan a parancsot végre kell hajtani."
+              }
+            },
+            "Arguments": {
+              "Name": {
+                "Magyar (Hungarian)": "Argumentumok"
+              },
+              "Description": {
+                "Magyar (Hungarian)": "Parancssori argumentumok a program futtatásához."
+              }
+            },
+            "Message on Error": {
+              "Name": {
+                "Magyar (Hungarian)": "Hibaüzenet"
+              },
+              "Description": {
+                "Magyar (Hungarian)": "Megjelenít egy üzenőmezőt, ha a folyamat indítása során hiba lép fel."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
