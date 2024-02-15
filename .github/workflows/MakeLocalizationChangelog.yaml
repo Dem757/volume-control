@@ -1,0 +1,51 @@
+name: Update Localization Changelog
+
+# Triggers when changes were made to the english translation config on the main branch
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'VolumeControl/Localization/en.loc*'
+      - 'VolumeControl.HotkeyActions/Localization/en.loc*'
+
+jobs:
+  update-changelog:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          persist-credentials: true
+
+        # Get changed files
+      - uses: tj-actions/changed-files@v40.2.3
+        id: changes
+        with:
+          include_all_old_new_renamed_files: true
+          files: |
+            VolumeControl/Localization/*.loc*
+            VolumeControl.HotkeyActions/Localization/*.loc*
+
+        # Build issue comment
+      - name: "Build comment body"
+        if: steps.changes.outputs.modified_files_count != 0
+        run: |
+          printf -- "| Date | Commit | Pushed By |\n"  >> body.md
+          printf -- "|------|--------|-----------|\n"  >> body.md
+          printf -- "| %s   | %s     | %s        |\n\n"  "$(date +%F)" "${{ github.sha }}" "${{ github.actor }}"  >> body.md
+
+          printf -- "**Commit Message:** \n$(git show -s --format=%B)\n***\n"  >> body.md
+
+          for file in ${{ steps.changes.outputs.modified_files }}; do
+            printf -- "- [\`%s\`](../blob/${{ github.sha }}/%s)  \n  \`\`\`diff\n%s\n  \`\`\`\n"  "$file" "$file" "$(git diff -p HEAD~1 HEAD VolumeControl/Localization/en.loc.json | tail -n +6 | awk '$0="  "$0')"  >> body.md
+          done
+
+        # Add comment to changelog issue
+      - name: Add Comment to Changelog
+        if: steps.changes.outputs.modified_files_count != 0
+        uses: peter-evans/create-or-update-comment@v3.1.0
+        with:
+          issue-number: 134
+          body-path: 'body.md'
+          

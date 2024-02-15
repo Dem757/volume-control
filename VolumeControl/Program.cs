@@ -94,11 +94,17 @@ namespace VolumeControl
 #else
             Settings = new("VolumeControl.json");
 #endif
+            bool settingsFileWasPresentAtStartup = false;
 
             if (args.Contains("--reset-config"))
+            {
                 Settings.Save(); //< reset the config by overwriting it with the default settings
-            else
-                Settings.Load(); //< load the previous config
+                Console.WriteLine($"Config file was reset. ({Settings.Location})");
+            }
+            else if (Settings.Load()) //< load the previous config
+            {
+                settingsFileWasPresentAtStartup = true;
+            }
             Settings.AttachReflectivePropertyChangedHandlers();
 
             // Multi instance gate
@@ -134,24 +140,24 @@ namespace VolumeControl
             FLog.Log.IsAsyncEnabled = false;
             // show all log message types in debug mode
             FLog.Log.EventTypeFilter = EventType.DEBUG | EventType.INFO | EventType.WARN | EventType.ERROR | EventType.FATAL | EventType.TRACE;
-            // open the log file in debug mode
-            ShellHelper.OpenWithDefault(Settings.LogPath);
+            // open the log file for monitoring
+            ShellHelper.Start(new("notepad++.exe", $"-monitor \"{Settings.LogPath}\"") { UseShellExecute = true });
 #endif
 
+            // write the config & log filepaths to the log
             FLog.Info(
                 $"Config Path: \"{Settings.Location}\"",
                 $"Log Path:    \"{Settings.LogPath}\"");
 
+            // write whether the config already existed to the log
+            if (settingsFileWasPresentAtStartup)
+                FLog.Info($"Settings file was present at startup.");
+            else
+                FLog.Info($"Settings file didn't exist at startup, so it was created.");
+
             // write commandline arguments to the log if they were specified
             if (args.Length > 0)
-            {
-                var msg = new LogMessage(EventType.INFO, $"Commandline arguments were included:");
-                for (int i = 0, i_max = args.Length; i < i_max; ++i)
-                {
-                    msg.Add($" [{i}] \"{args[i]}\"");
-                }
-                FLog.LogMessage(msg);
-            }
+                FLog.Info($"Commandline arguments: \"{string.Join("\", \"", args)}\"");
 
             // Get program information:
             SemVersion version = GetProgramVersion();
@@ -181,15 +187,16 @@ namespace VolumeControl
             }
 
             // Update the version number in the config
+#if !DEBUG
             if (versionChanged)
+#endif
             {
                 FLog.Info($"Config version is {Settings.__VERSION__}, settings will be migrated to version {version}.");
+
+                // update the version number in the config
+                Settings.__VERSION__ = version;
+                Settings.Save();
             }
-#if DEBUG
-            versionChanged = true;
-#endif
-            // update the version number in the config
-            Settings.__VERSION__ = version;
 
             // create the application class
             var app = new App();

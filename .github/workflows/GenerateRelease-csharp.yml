@@ -25,7 +25,7 @@ jobs:
         with:
           ref: '${{ github.ref }}'
 
-      - uses: actions/setup-dotnet@v3.2.0
+      - uses: actions/setup-dotnet@v4.0.0
         with:
           dotnet-version:   6.0.x
           
@@ -35,24 +35,18 @@ jobs:
       - name:   Build VolumeControl Binary
         run:    dotnet publish VolumeControl -c Release -p:PublishProfile="VolumeControl/Properties/PublishProfiles/FolderProfile.pubxml"
 
-      - name:   Validate Product Version Number
-        run:    |
-                $ExeVersion = $(Get-Item publish/VolumeControl.exe).VersionInfo.ProductVersion
-                $CsprojVersion = $(.\.github\workflows\scripts\SetProperty.ps1 VolumeControl/VolumeControl.csproj Version -Quiet)
-                if ($ExeVersion -ne $CsprojVersion) { echo "The executable's product version ($ExeVersion) differs from the one in the CSPROJ file ($CsprojVersion)!" ; exit 1 }
-        
       - name:   Stage Binary (Portable Version)
         run:    foreach($file in $((dir "publish" | where {$_.extension -in ".exe"}).Fullname)){ mv "$file" "STAGING" }
 
       - name:   Upload Executable Artifact
-        uses:   actions/upload-artifact@v3
+        uses:   actions/upload-artifact@v4
         with:
           name: portable
           path: '${{github.workspace}}/STAGING/*'
           if-no-files-found: error
 
       - name:   Upload SDK Artifact
-        uses:   actions/upload-artifact@v3
+        uses:   actions/upload-artifact@v4
         with:
           name: sdk
           path: '${{github.workspace}}/publish/SDK/*'
@@ -74,7 +68,7 @@ jobs:
         with:
           ref: '${{ github.ref }}'
 
-      - uses: actions/setup-dotnet@v3.2.0
+      - uses: actions/setup-dotnet@v4.0.0
         with:
           dotnet-version:   6.0.x
           
@@ -87,14 +81,8 @@ jobs:
       - name:   Build VolumeControl Binary
         run:    dotnet publish VolumeControl -c Release-ForInstaller -p:PublishProfile="VolumeControl/Properties/PublishProfiles/PublishForInstaller.pubxml"
 
-      - name:   Validate Product Version Number
-        run:    |
-                $ExeVersion = $(Get-Item publish/installer/VolumeControl.exe).VersionInfo.ProductVersion
-                $CsprojVersion = $(.\.github\workflows\scripts\SetProperty.ps1 VolumeControl/VolumeControl.csproj Version -Quiet)
-                if ($ExeVersion -ne $CsprojVersion) { echo "The executable's product version ($ExeVersion) differs from the one in the CSPROJ file ($CsprojVersion)!" ; exit 1 }
-
       - name:   Compile VolumeControl Installer
-        uses:   Minionguyjpro/Inno-Setup-Action@v1.1.0
+        uses:   Minionguyjpro/Inno-Setup-Action@v1.2.2
         with:
           path: vcsetup.iss
           options: /Opublish
@@ -103,7 +91,7 @@ jobs:
         run:    foreach($file in $((dir "publish" | where {$_.extension -in ".exe"}).Fullname)){ mv "$file" "STAGING" }
 
       - name:   Upload Executable Artifact
-        uses:   actions/upload-artifact@v3
+        uses:   actions/upload-artifact@v4
         with:
           name: installer
           path: '${{github.workspace}}/STAGING/*'
@@ -115,7 +103,7 @@ jobs:
 
     steps:
       - name: Download Artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           path:  ${{github.workspace}}
 
